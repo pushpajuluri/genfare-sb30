@@ -49,9 +49,9 @@ class GFMyPassesTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     if Utilities.isLoginCardBased(){
                         if let accountHomeVC = self.baseClass as? GFAccountBasedHomeViewController{
-                            DispatchQueue.main.async {
-                                accountHomeVC.viewModel.updateEventRecord()
-                            }
+//                            DispatchQueue.main.async {
+//                                accountHomeVC.viewModel.updateEventRecord()
+//                            }
                             accountHomeVC.viewModel.updateWalletStatus()
 
                         }

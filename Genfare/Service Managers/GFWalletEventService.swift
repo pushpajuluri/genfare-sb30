@@ -52,7 +52,8 @@ class GFWalletEventService {
             if Utilities.isLoginCardBased(){
                 storedDict["amountRemaining"] = Utilities.walletContentsBalance()
             }else{
-                storedDict["amountRemaining"] = Utilities.accountBalance()
+               storedDict["amountRemaining"] =  event.amountRemaining //  Utilities.accountBalance()
+
             }
             
         }
@@ -160,14 +161,7 @@ class GFWalletEventService {
             }
             guard NetworkManager.Reachability else {
                 var currentBalance = Int(Utilities.accountBalance())
-                var fare = 0
-                if loyalty.isProductEligibleForCappedRide() || loyalty.isProductEligibleForBonusRide(){
-                    fare = 0
-                }
-                else{
-                    fare = Int(product.price!)!
-                }
-               var remainingBalance = currentBalance - fare
+                var remainingBalance = currentBalance - Int(userObj.fare!)
                 Utilities.saveAccountBalance(bal:NSNumber(value:remainingBalance))
                 return
             }

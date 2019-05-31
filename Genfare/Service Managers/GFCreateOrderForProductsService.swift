@@ -61,6 +61,8 @@ class GFCreateOrderForProductsService{
                     if let json = JSON as? [String:Any] {
                         if let orderNumber = json["result"]{
                    UserDefaults.standard.set(orderNumber, forKey: "orderNumber")
+                   UserDefaults.standard.synchronize()
+
                             completionHandler(true,nil)
                             
                         }

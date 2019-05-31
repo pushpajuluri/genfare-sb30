@@ -43,8 +43,10 @@ class GFAccountBasedHomeViewController: GFBaseViewController,WalletProtocol {
         view.backgroundColor = .black
         navigationController?.setNavigationBarHidden(false, animated: false);
         navigationController?.navigationBar.barTintColor = UIColor.topNavBarColor
+        if NetworkManager.Reachability {
         DispatchQueue.main.async{
             self.viewModel.updateEventRecord()
+        }
         }
         viewModel.updateWalletStatus()
         print(pageMenu?.currentPageIndex)

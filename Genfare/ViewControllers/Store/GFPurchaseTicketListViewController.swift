@@ -145,6 +145,8 @@ class GFPurchaseTicketListViewController:UIViewController,UITableViewDelegate,UI
     func dictForPayAsYouGo() {
         viewModel.payAsYouGoTextFieldtext = self.PayAsYouGoTextField.text!
         UserDefaults.standard.set(viewModel.payAsYouGoTextFieldtext, forKey: "payasyougoamount")
+        UserDefaults.standard.synchronize()
+
     }
     //
   

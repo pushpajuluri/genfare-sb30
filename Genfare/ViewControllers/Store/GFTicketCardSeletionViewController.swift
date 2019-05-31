@@ -74,6 +74,7 @@ class GFTicketCardSeletionViewController: UIViewController,UITableViewDelegate,U
             sender.isSelected = true
             UserDefaults.standard.set(false, forKey: "savedcards")
         }
+        UserDefaults.standard.synchronize()
     }
     
     

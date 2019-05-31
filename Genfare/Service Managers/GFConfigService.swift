@@ -60,7 +60,7 @@ class GFConfigService{
         let configObj:Configure = NSManagedObject(entity: configureContents!, insertInto: managedContext) as! Configure
         let maxAllowedUnSyncedOfflineActivations = data["maxAllowedUnSyncedOfflineActivations"] as? NSNumber
         UserDefaults.standard.set( maxAllowedUnSyncedOfflineActivations, forKey: "maxAllowedUnSyncedOfflineActivations")
-
+        UserDefaults.standard.synchronize()
         configObj.agencyContactNumber = data["AgencyContactNumber"] as? String
         configObj.agencyId = data["AgencyId"] as? NSNumber
         configObj.barcodeActivationOffSetInMins = data["barcodeActivationOffsetInMins"] as? NSNumber
